@@ -50,10 +50,23 @@
 \section{Preliminaries}
 
 
-\cite{goerss2009simplicial}
-\cite{may1992simplicial}
 
-An abstract simplicial complex is a pair $(S,\mathcal{K})$ where $S$ is a set and $\mathcal{K}$ is a family of non-empty finite subsets of $S$ such that, if $\sigma\subseteq \tau$ and $\tau\in \mathcal{K}$ then $\sigma\in\mathcal{K}$. A morphism between  abstract simplicial complexes $(S_1,\mathcal{K}_1)$ and $(S_2,\mathcal{K}_2)$ is a map $f\colon S_1\longrightarrow S_2$ such that $f(\sigma)\in \mathcal{K}_2$ for any $\sigma\in\mathcal{K}_2$.
+
+We recall that, given a topological space $X$, a covering space on $X$ it's a continuous map $p\colon E\to X$, such that for every $x\in X$, there is an open neighborhood $U$ such that $p^{-1}(U)$ it's a disjoint union of open sets $U_{\lambda}$, $\lambda\in\Lambda$, and $p|_{U_{\lambda}}\colon U_{\lambda}\to U$ it's a homeomorphism. We recommend the book of P. May \cite{may1999concise} as reference of covering spaces.
+
+
+An abstract simplicial complex is a pair $(S,\mathcal{K})$ where $S$ is a set and $\mathcal{K}$ is a family of non-empty finite subsets of $S$ such that, if $\sigma\subseteq \tau$ and $\tau\in \mathcal{K}$ then $\sigma\in\mathcal{K}$. If $\sigma\in \mathcal{K}$, then the dimension of $\sigma$ is $\vert\sigma\vert-1$, and we denote it by $dim(\sigma)$. The elements of $\mathcal{K}$ of dimension $n$ are called $n$-simplices, and we denote the set of $n$-simplices by $\mathcal{K}_n$. The $0$-simplices are called vertices.
+
+The geometric realization of an abstract simplicial  complex $(S,\mathcal{K})$ is the set of all function $\phi\colon S\longrightarrow [0,1]$ such that:
+\begin{itemize}
+\item $supp(\phi)\in\mathcal{K}$
+\item $\sum_{s\in S}\phi(s)=1$
+\end{itemize}
+We denote this set by $\vert (S,\mathcal{K})\vert$. We may think $[0,1]^S$ as the direct limit of $[0,1]^A$ where $A$ranges over all finite subsets of $S$. So we give the $\vert (S,\mathcal{K})\vert$ the subspace topology.
+
+ A morphism between  abstract simplicial complexes $(S_1,\mathcal{K}_1)$ and $(S_2,\mathcal{K}_2)$ is a map $f\colon S_1\longrightarrow S_2$ such that $f(\sigma)\in \mathcal{K}_2$ for any $\sigma\in\mathcal{K}_2$.
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Abstract Simplicial Coverings}
