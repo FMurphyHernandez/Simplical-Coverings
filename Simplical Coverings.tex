@@ -25,7 +25,7 @@
 
 \title{Simplicial Coverings}
 
-\author{Frank Murphy-Hernandez}
+\author{Frank Murphy-Hernandez\\Luis Alberto Mac\'ias-Barrales}
 \address{Facultad de Ciencias, UNAM, Mexico City}
 \email{murphy@ciencias.unam.mx}
 
@@ -56,18 +56,29 @@ We denote by $\Delta$ the simplex category and by $s\mathcal{S}$ the category of
 \cite{goerss2009simplicial}
 \cite{may1992simplicial}
 
-An abstract simplicial complex is a pair $(S,\mathcal{K})$ where $S$ is a set and $\mathcal{K}$ is a family of non-empty finite subsets of $S$ such that, if $\sigma\subseteq \tau$ and $\tau\in \mathcal{K}$ then $\sigma\in\mathcal{K}$. A morphism between of abstract simplicial complex $(S_1,\mathcal{K}_1)$ and $(S_2,\mathcal{K}_2)$
+An abstract simplicial complex is a pair $(S,\mathcal{K})$ where $S$ is a set and $\mathcal{K}$ is a family of non-empty finite subsets of $S$ such that, if $\sigma\subseteq \tau$, $\sigma\neq\emptyset$ and $\tau\in \mathcal{K}$ then $\sigma\in\mathcal{K}$. A morphism between abstract simplicial complexes $f\colon(S_1,\mathcal{K}_1)\to(S_2,\mathcal{K}_2)$ it's a funtion $f\colon S_{1}\to S_{2}$ such that $f(\sigma)\in\mathcal{K}_{2}$ for any simplex $\sigma\in\mathcal{K}_{1}$. We will denote $\mathcal{C}$ to the category of abstract simplicial complexes.
+
+The geometric realization of an abstract simplical complex $(S,\mathcal{K})$ is given by the following formula: first we give a total order to $S$. Then, for any simplex $\sigma=\{s_{0}<s_{1}<\ldots<s_{q}\}$ we define $|\sigma|=\Delta^{q}$, the standar topological $q$-simplex and we asociate to the vertex $s_{q}$ the $q$-th vertex of $\Delta^{q}$. If $\tau=\{s_{0}<\ldots<s_{q}\}$ is a simplex and $\sigma=\{s_{q_{1}}<\ldots<s_{q_{k}}\}\subseteq\tau$, we define $i_{\sigma}^{\tau}\colon|\sigma|\to|\tau|$ to be the affine function such that maps the $j$-th vertex of $|\sigma|$ to the $q_{j}$-th vertex of $|\tau|$. Thus we take $|S|$ as the colimit over this system. If $f\colon(S_{1},\mathcal{K}_{1})\to(S_{2},\mathcal{K}_{2})$ it's a morphism of abstract simplicial complexes, then we can define $|f|\colon|S_{1}|\to|S_{2}|$ as the colimit of the affine functions $|f|_{\sigma}|\colon|\sigma|\to|f(\sigma)|$. $|-|\colon\mathcal{C}\to\mathcal{T}$ it's a functor, were $\mathcal{T}$ is the category of topological spaces and continuous maps.
+
 
 We shall recall that, given a topological space $X$, a covering space on $X$ it's a continuous map $p\colon E\to X$, such that for every $x\in X$, there is an open neighborhood $U$ such that $p^{-1}(U)$ it's a disjoint union of open sets $U_{\lambda}$, $\lambda\in\Lambda$, and $p|_{U_{\lambda}}\colon U_{\lambda}\to U$ it's a homeomorphism.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Abstract Simplicial Coverings}
 
+\begin{definition}
+Let $(S,\mathcal{K})$ an abstract simplicial complex. An abstract simplicial covering on $(S,\mathcal{K})$ it's a simplicial map $p\colon(E,\mathcal{L})\to(S,\mathcal{K})$ such that for each simplex $\sigma\in\mathcal{K}$, $p^{-1}(\sigma)=\amalg_{\lambda\in\Lambda}\sigma_{\lambda}$ were $\sigma_{\lambda}\in\mathcal{L}$ and $p|_{\sigma_{\lambda}}\colon \sigma_{\lambda}\to \sigma$ it is onto and one to one, for each $\lambda\in\Lambda$.
+\end{definition}
+
+\begin{proposition}
+Let $p\colon(E,\mathcal{L})\to(S,\mathcal{K})$ be an abstract simplicial covering. Then $|p|:|E|\to|S|$ it's a covering space.
+\end{proposition}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Simplicial Coverings}
 
 \begin{definition}
-Let $X$ be a simplicial set. A simplicial covering of $X$ is a pair $(Y,p)$ where $Y$ is a simplicial set and $p\colon Y\longrightarrow X$ is a simplicial map such that...
+Let $X$ be a simplicial set. A simplicial covering on $X$ is a pair $(Y,p)$ where $Y$ is a simplicial set and $p\colon Y\longrightarrow X$ is a simplicial map such that 
 \end{definition}
 
 \begin{proposition}
