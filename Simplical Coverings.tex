@@ -29,7 +29,7 @@
 \address{Facultad de Ciencias, UNAM, Mexico City}
 \email{murphy@ciencias.unam.mx}
 
-\author{Alberto Macias}
+\author{Luis Mac\'ias-Barrales}
 \address{Instituto de Matem\'aticas, UNAM, Mexico City}
 \email{}
 
@@ -48,37 +48,41 @@ We prove that the geometric realization of a covering complex is a covering spac
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Introduction}
 
-
+The theory of abstract simplicial complexes is a useful tool in the calculation of fundamental groups. This fact appears explicitly in the paper \cite{weil1960discrete} of A. Weil, .....
+For any connected abstract simplicial complex $S$ is edge-path group $E(S)$ is naturally isomorphic to the fundamental group of its geometric realization $\pi_1(\vert S\vert)$. The edge-path group could be described explicitly by  generators and relations. As reference for these facts, see the book of I. Singer and J. Thorpe \cite{singer2015lecture}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preliminaries}
 
 
-
-
 We recall that, given a topological space $X$, a covering space on $X$ it's a continuous map $p\colon E\to X$, such that for every $x\in X$, there is an open neighborhood $U$ such that $p^{-1}(U)$ it's a disjoint union of open sets $U_{\lambda}$, $\lambda\in\Lambda$, and $p|_{U_{\lambda}}\colon U_{\lambda}\to U$ it's a homeomorphism. We recommend the book of P. May \cite{may1999concise} and the book of J. Rotman \cite{rotman2013introduction} as reference of covering spaces.
-
 
 An abstract simplicial complex is a pair $(S,\mathcal{K})$ where $S$ is a set and $\mathcal{K}$ is a family of non-empty finite subsets of $S$ such that, if $\sigma\subseteq \tau$ and $\tau\in \mathcal{K}$ then $\sigma\in\mathcal{K}$. We call complexes to the abstract simplicial complexes.  If $\sigma\in \mathcal{K}$, then the dimension of $\sigma$ is $\vert\sigma\vert-1$, and we denote it by $dim(\sigma)$. The elements of $\mathcal{K}$ of dimension $n$ are called $n$-simplices, and we denote the set of $n$-simplices by $\mathcal{K}_n$. The $0$-simplices are called vertices. An edge $e$ in $(S,\mathcal{K})$ is a pair of vertices  $(x,y)$ where $\{x,y\}\in\mathcal{K}$, $x$ is the origin of the edge $e$ and we denote it by $orig(e)$, and $y$ is the end of the edge $e$ and we denote by $end(e)$. A path $\alpha$ in $(S,\mathcal{K})$ is a finite sequence of edges $e_1,\dots,e_n$ such that $end(e_i)=orig(e_{i+1})$ with $i=1,\dots,n-1$. We define $orig(\alpha)=orig(e_1)$ and $end(\alpha)=end(e_n)$. 
 
+A morphism between complex $(S_1,\mathcal{K}_1)$ and $(S_2,\mathcal{K}_2)$ is a map $f\colon S_1\longrightarrow S_2$ such that $f(\sigma)\in \mathcal{K}_2$ for any $\sigma\in\mathcal{K}_2$. We call a morphism of complexes a simplicial map. We  denote by $\mathcal{C}$ to the category of complexes and simplicial maps.
+
+We  denote by $\mathcal{T}$ to the category of topological spaces and continuous maps.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Geometric Realization of Covering Complexes}
+
+\begin{definition}
 The geometric realization of a complex $(S,\mathcal{K})$ is the set of all function $\phi\colon S\longrightarrow [0,1]$ such that:
 \begin{itemize}
 \item $supp(\phi)\in\mathcal{K}$
 \item $\sum_{s\in S}\phi(s)=1$
 \end{itemize}
 We denote this set by $\vert (S,\mathcal{K})\vert$. We may think $[0,1]^S$ as the direct limit of $[0,1]^A$ where $A$ranges over all finite subsets of $S$. So we give the $\vert (S,\mathcal{K})\vert$ the subspace topology.
-
- A morphism between complex $(S_1,\mathcal{K}_1)$ and $(S_2,\mathcal{K}_2)$ is a map $f\colon S_1\longrightarrow S_2$ such that $f(\sigma)\in \mathcal{K}_2$ for any $\sigma\in\mathcal{K}_2$.
-
+\end{definition}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Geometric Realization of Covering Complexes}
+\begin{definition}
+The geometric realization of an abstract simplical complex $(S,\mathcal{K})$ is given by the following formula: first we give a total order to $S$. Then, for any simplex $\sigma=\{s_{0}<s_{1}<\ldots<s_{q}\}$ we define $|\sigma|=\Delta^{q}$, the standar topological $q$-simplex and we asociate to the vertex $s_{q}$ the $q$-th vertex of $\Delta^{q}$. If $\tau=\{s_{0}<\ldots<s_{q}\}$ is a simplex and $\sigma=\{s_{q_{1}}<\ldots<s_{q_{k}}\}\subseteq\tau$, we define $i_{\sigma}^{\tau}\colon|\sigma|\to|\tau|$ to be the affine function such that maps the $j$-th vertex of $|\sigma|$ to the $q_{j}$-th vertex of $|\tau|$. Thus we take $|S|$ as the colimit over this system. If $f\colon(S_{1},\mathcal{K}_{1})\to(S_{2},\mathcal{K}_{2})$ it's a morphism of abstract simplicial complexes, then we can define $|f|\colon|S_{1}|\to|S_{2}|$ as the colimit of the affine functions $|f|_{\sigma}|\colon|\sigma|\to|f(\sigma)|$. $|-|\colon\mathcal{C}\to\mathcal{T}$ it's a functor.
+\end{definition}
 
 \begin{definition}
 Let $(S,\mathcal{K})$ be a complex. We say that $(S,\mathcal{K})$ is connected if for any pair of vertices $x,y$ of $(S,\mathcal{K})$ there is a path $\alpha$ such that $orig(\alpha)=x$ and $end(\alpha)=y$.
 \end{definition}
-
 
 The following definition is due J. Rotman in \cite{rotman1973covering}.
 
@@ -102,8 +106,7 @@ Let $(S,\mathcal{K})$ be an abstract simplicial complex and $((T,\mathcal{L}),p)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Geometric Realization of the Universal Covering Complex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Fundamental Group}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliography{biblio}
