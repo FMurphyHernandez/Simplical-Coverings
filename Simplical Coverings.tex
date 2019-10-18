@@ -55,9 +55,16 @@ For any connected abstract simplicial complex $S$ is edge-path group $E(S)$ is n
 \section{Preliminaries}
 
 
-We recall that, given a topological space $X$, a covering space on $X$ it's a continuous map $p\colon E\to X$, such that for every $x\in X$, there is an open neighborhood $U$ such that $p^{-1}(U)$ it's a disjoint union of open sets $U_{\lambda}$, $\lambda\in\Lambda$, and $p|_{U_{\lambda}}\colon U_{\lambda}\to U$ it's a homeomorphism. We recommend the book of P. May \cite{may1999concise} and the book of J. Rotman \cite{rotman2013introduction} as reference of covering spaces.
+We recall that, given a topological space $X$, a covering space on $X$ it's a continuous map $p\colon E\to X$, such that for every $x\in X$, there is an open neighborhood $U$ such that $p^{-1}(U)$ it is a disjoint union of open sets $U_{\lambda}$, $\lambda\in\Lambda$, and $p|_{U_{\lambda}}\colon U_{\lambda}\to U$ it's a homeomorphism. We recommend the book of P. May \cite{may1999concise} and the book of J. Rotman \cite{rotman2013introduction} as reference of covering spaces.
 
-An abstract simplicial complex is a pair $(S,\mathcal{K})$ where $S$ is a set and $\mathcal{K}$ is a family of non-empty finite subsets of $S$ such that, if $\sigma\subseteq \tau$ and $\tau\in \mathcal{K}$ then $\sigma\in\mathcal{K}$. We call complexes to the abstract simplicial complexes.  If $\sigma\in \mathcal{K}$, then the dimension of $\sigma$ is $\vert\sigma\vert-1$, and we denote it by $dim(\sigma)$. The elements of $\mathcal{K}$ of dimension $n$ are called $n$-simplices, and we denote the set of $n$-simplices by $\mathcal{K}_n$. The $0$-simplices are called vertices. An edge $e$ in $(S,\mathcal{K})$ is a pair of vertices  $(x,y)$ where $\{x,y\}\in\mathcal{K}$, $x$ is the origin of the edge $e$ and we denote it by $orig(e)$, and $y$ is the end of the edge $e$ and we denote by $end(e)$. A path $\alpha$ in $(S,\mathcal{K})$ is a finite sequence of edges $e_1,\dots,e_n$ such that $end(e_i)=orig(e_{i+1})$ with $i=1,\dots,n-1$. We define $orig(\alpha)=orig(e_1)$ and $end(\alpha)=end(e_n)$. 
+An abstract simplicial complex is a pair $(S,\mathcal{K})$ where $S$ is a set and $\mathcal{K}$ is a family of non-empty finite subsets of $S$ such that:
+\begin{itemize}
+\item $\bigcup\mathcal{K}=S$.
+\item If $\sigma\subseteq \tau$ and $\tau\in \mathcal{K}$ then $\sigma\in\mathcal{K}$.
+\end{itemize}
+We call complexes to the abstract simplicial complexes.  If $\sigma\in \mathcal{K}$, then the dimension of $\sigma$ is $\vert\sigma\vert-1$, and we denote it by $dim(\sigma)$. The elements of $\mathcal{K}$ of dimension $n$ are called $n$-simplices, and we denote the set of $n$-simplices by $\mathcal{K}_n$. The $0$-simplices are called vertices. The dimension of $(S,\mathcal{K})$ is defined as the supremum of $dim(\sigma)$ where $\sigma$ ranges over $\mathcal{K}$, we denote it by $dim(S,\mathcal{K})$. This dimension may be infinite. We call the complex $(S,\mathcal{K})$  finite, if its dimension is finite.
+
+An edge $e$ in $(S,\mathcal{K})$ is a pair of vertices  $(x,y)$ where $\{x,y\}\in\mathcal{K}$, $x$ is the origin of the edge $e$ and we denote it by $orig(e)$, and $y$ is the end of the edge $e$ and we denote by $end(e)$. A path $\alpha$ in $(S,\mathcal{K})$ is a finite sequence of edges $e_1,\dots,e_n$ such that $end(e_i)=orig(e_{i+1})$ with $i=1,\dots,n-1$. We define $orig(\alpha)=orig(e_1)$ and $end(\alpha)=end(e_n)$. 
 
 A morphism between complex $(S_1,\mathcal{K}_1)$ and $(S_2,\mathcal{K}_2)$ is a map $f\colon S_1\longrightarrow S_2$ such that $f(\sigma)\in \mathcal{K}_2$ for any $\sigma\in\mathcal{K}_2$. We call a morphism of complexes a simplicial map. We  denote by $\mathcal{C}$ to the category of complexes and simplicial maps.
 
@@ -94,6 +101,19 @@ Let $(S,\mathcal{K})$ be a complex. A covering of $(S,\mathcal{K})$ is a pair $(
 \end{itemize}
 The map $p$ is called projection and the simplices $\sigma_i$ are called sheets over $\sigma$.
 \end{definition}
+
+We observe that $p$ is surjective and $(S,\mathcal{K})$ is connected.
+
+\begin{proposition}
+Let $(S,\mathcal{K})$ be a complex, and $((T,\mathcal{L}),p)$ a covering complex of $(S,\mathcal{K})$. If $\sigma\in\mathcal{K}$ is a maximal simplex, then $p^{-1}$ is the disjoint union of maximal simplices.
+\end{proposition}
+
+\begin{proof}
+Let $\sigma\in\mathcal{K}$ be a maximal simplex with  $p^{-1}(\sigma)=\bigcup_{i\in I}\sigma_i$ where the family $\{\sigma_i\}_{i\in I}$ is a pairwise disjoint family of simplices of $\mathcal{K}$ such that $p|_{\sigma_i}\colon \sigma_i\longrightarrow \sigma$ is bijective. If $\sigma_j$ is not maximal for some $j\in I$, then there is a simplex $\tau\in\mathcal{L}$ such that $\sigma_j\subset \tau$. As $\sigma$ is maximal and $\sigma=p(\sigma_j)\subseteq p(\tau)$, we have that $p(\tau)=\sigma$.        ...........................
+\end{proof}
+
+
+
 
 \begin{proposition}
 Let $(S,\mathcal{K})$ be an abstract simplicial complex and $((T,\mathcal{L}),p)$ an abstract simplicial covering of $(S,\mathcal{K})$. Then $(\vert (T,\mathcal{L})\vert,\vert p\vert)$ is covering of $\vert (S,\mathcal{K})\vert$.
