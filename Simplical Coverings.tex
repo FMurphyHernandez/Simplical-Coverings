@@ -10,6 +10,9 @@
 \usepackage{hyperref}
 \usepackage{enumerate}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Topology and its Applications
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}{Lemma}[section]
@@ -40,7 +43,7 @@
 \keywords{Abstract Simplicial Complexes, Coverings, Fundamental Group}
 
 \begin{abstract}
-We prove that the geometric realization of a covering complex is a covering space. Also, this holds true for the universal covering complex. Finally, we prove that the fundamental group of a complex coincides with the fundamental group of the geometric realization.
+We prove that the geometric realization of a covering complex is a covering space. Also, this holds true for the universal covering complex.
 \end{abstract}
 
 \maketitle
@@ -50,6 +53,8 @@ We prove that the geometric realization of a covering complex is a covering spac
 
 The theory of abstract simplicial complexes is a useful tool in the calculation of fundamental groups. This fact appears explicitly in the paper \cite{weil1960discrete} of A. Weil, .....
 For any connected abstract simplicial complex $S$ is edge-path group $E(S)$ is naturally isomorphic to the fundamental group of its geometric realization $\pi_1(\vert S\vert)$. The edge-path group could be described explicitly by  generators and relations. As reference for these facts, see the book of I. Singer and J. Thorpe \cite{singer2015lecture}. 
+
+We base our definition of covering complex given by J. Rotman in \cite{rotman1973covering}, but there are other definitions covering complex as the one in \cite{abello1991complexity}. The definition of J. Rotman
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preliminaries}
@@ -67,6 +72,8 @@ We call complexes to the abstract simplicial complexes.  If $\sigma\in \mathcal{
 An edge $e$ in $(S,\mathcal{K})$ is a pair of vertices  $(x,y)$ where $\{x,y\}\in\mathcal{K}$, $x$ is the origin of the edge $e$ and we denote it by $orig(e)$, and $y$ is the end of the edge $e$ and we denote by $end(e)$. A path $\alpha$ in $(S,\mathcal{K})$ is a finite sequence of edges $e_1,\dots,e_n$ such that $end(e_i)=orig(e_{i+1})$ with $i=1,\dots,n-1$. We define $orig(\alpha)=orig(e_1)$ and $end(\alpha)=end(e_n)$. 
 
 A morphism between complex $(S_1,\mathcal{K}_1)$ and $(S_2,\mathcal{K}_2)$ is a map $f\colon S_1\longrightarrow S_2$ such that $f(\sigma)\in \mathcal{K}_2$ for any $\sigma\in\mathcal{K}_2$. We call a morphism of complexes a simplicial map. We  denote by $\mathcal{C}$ to the category of complexes and simplicial maps.
+
+As reference of complexes, we recommend \cite{singer2015lecture}  and \cite{spanier1989algebraic}.
 
 We  denote by $\mathcal{T}$ to the category of topological spaces and continuous maps.
 
@@ -97,19 +104,24 @@ The following definition is due J. Rotman in \cite{rotman1973covering}.
 Let $(S,\mathcal{K})$ be a complex. A covering of $(S,\mathcal{K})$ is a pair $((T,\mathcal{L}),p)$ where $(T,\mathcal{L})$ is a complex and $p\colon T\longrightarrow S$ is a morphism of complexes such that:
 \begin{itemize}
 \item $(T,\mathcal{L})$ is a connected complex.
-\item For every $\sigma\in\mathcal{L}$, $p^{-1}(\sigma)=\bigcup_{i\in I}\sigma_i$ where the family $\{\sigma_i\}_{i\in I}$ is a pairwise disjoint family of simplices of $\mathcal{K}$ such that $p|_{\sigma_i}\colon \sigma_i\longrightarrow \sigma$ is bijective.
+\item For every $\sigma\in\mathcal{K}$, $p^{-1}(\sigma)=\bigcup_{i\in I}\sigma_i$ where the family $\{\sigma_i\}_{i\in I}$ is a pairwise disjoint family of simplices of $\mathcal{L}$ such that $p|_{\sigma_i}\colon \sigma_i\longrightarrow \sigma$ is bijective.
 \end{itemize}
 The map $p$ is called projection and the simplices $\sigma_i$ are called sheets over $\sigma$.
 \end{definition}
 
-We observe that $p$ is surjective and $(S,\mathcal{K})$ is connected.
+We observe that $p$ is surjective and $(S,\mathcal{K})$ is connected. For our geometric porpoises we need a stronger definition of covering complex.
+
+\begin{definition}
+Let $(S,\mathcal{K})$ be a complex. A geometric covering of $(S,\mathcal{K})$ is a covering $((T,\mathcal{L}),p)$ such that for any simplex $\sigma\in\mathcal{L}_n$, $p(\sigma)\in\mathcal{K}_n$. In other words, $p$ preserves the dimension of the simplices.
+\end{definition}
+
 
 \begin{proposition}
 Let $(S,\mathcal{K})$ be a complex, and $((T,\mathcal{L}),p)$ a covering complex of $(S,\mathcal{K})$. If $\sigma\in\mathcal{K}$ is a maximal simplex, then $p^{-1}$ is the disjoint union of maximal simplices.
 \end{proposition}
 
 \begin{proof}
-Let $\sigma\in\mathcal{K}$ be a maximal simplex with  $p^{-1}(\sigma)=\bigcup_{i\in I}\sigma_i$ where the family $\{\sigma_i\}_{i\in I}$ is a pairwise disjoint family of simplices of $\mathcal{K}$ such that $p|_{\sigma_i}\colon \sigma_i\longrightarrow \sigma$ is bijective. If $\sigma_j$ is not maximal for some $j\in I$, then there is a simplex $\tau\in\mathcal{L}$ such that $\sigma_j\subset \tau$. As $\sigma$ is maximal and $\sigma=p(\sigma_j)\subseteq p(\tau)$, we have that $p(\tau)=\sigma$.        ...........................
+Let $\sigma\in\mathcal{K}$ be a maximal simplex with  $p^{-1}(\sigma)=\bigcup_{i\in I}\sigma_i$ where the family $\{\sigma_i\}_{i\in I}$ is a pairwise disjoint family of simplices of $\mathcal{K}$ such that $p|_{\sigma_i}\colon \sigma_i\longrightarrow \sigma$ is bijective. If $\sigma_j$ is not maximal for some $j\in I$, then there is a simplex $\tau\in\mathcal{L}$ such that $\sigma_j\subset \tau$. As $\sigma$ is maximal and $\sigma=p(\sigma_j)\subseteq p(\tau)$, we have that $p(\tau)=\sigma$. This contradicts the fact that $p$ preserves the dimension. Therefore $\sigma_i$ is a maximal simplex.
 \end{proof}
 
 
