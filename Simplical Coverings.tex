@@ -67,7 +67,7 @@ An abstract simplicial complex is a pair $(S,\mathcal{K})$ where $S$ is a set an
 \item $\bigcup\mathcal{K}=S$.
 \item If $\sigma\subseteq \tau$ and $\tau\in \mathcal{K}$ then $\sigma\in\mathcal{K}$.
 \end{itemize}
-We call complexes to the abstract simplicial complexes.  If $\sigma\in \mathcal{K}$, then the dimension of $\sigma$ is $\vert\sigma\vert-1$, and we denote it by $dim(\sigma)$. The elements of $\mathcal{K}$ of dimension $n$ are called $n$-simplices, and we denote the set of $n$-simplices by $\mathcal{K}_n$. The $0$-simplices are called vertices. The dimension of $(S,\mathcal{K})$ is defined as the supremum of $dim(\sigma)$ where $\sigma$ ranges over $\mathcal{K}$, we denote it by $dim(S,\mathcal{K})$. This dimension may be infinite. We call the complex $(S,\mathcal{K})$  finite, if its dimension is finite.
+We call complexes to the abstract simplicial complexes.  If $\sigma\in \mathcal{K}$, then the dimension of $\sigma$ is $\vert\sigma\vert-1$, and we denote it by $dim(\sigma)$. The elements of $\mathcal{K}$ of dimension $n$ are called $n$-simplices, and we denote the set of $n$-simplices by $\mathcal{K}_n$. The $0$-simplices are called vertices. The dimension of $(S,\mathcal{K})$ is defined as the supremum of $dim(\sigma)$ where $\sigma$ ranges over $\mathcal{K}$, we denote it by $dim(S,\mathcal{K})$. This dimension may be infinite. We call the complex $(S,\mathcal{K})$  finite, if $S$ is finite. In particular, a finite complex has finite dimension.
 
 An edge $e$ in $(S,\mathcal{K})$ is a pair of vertices  $(x,y)$ where $\{x,y\}\in\mathcal{K}$, $x$ is the origin of the edge $e$ and we denote it by $orig(e)$, and $y$ is the end of the edge $e$ and we denote by $end(e)$. A path $\alpha$ in $(S,\mathcal{K})$ is a finite sequence of edges $e_1,\dots,e_n$ such that $end(e_i)=orig(e_{i+1})$ with $i=1,\dots,n-1$. We define $orig(\alpha)=orig(e_1)$ and $end(\alpha)=end(e_n)$. 
 
@@ -77,22 +77,10 @@ As reference of complexes, we recommend \cite{singer2015lecture}  and \cite{span
 
 We  denote by $\mathcal{T}$ to the category of topological spaces and continuous maps.
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Geometric Realization of Covering Complexes}
+\section{Geometric Covering Complexes}
 
-\begin{definition}
-The geometric realization of a complex $(S,\mathcal{K})$ is the set of all function $\phi\colon S\longrightarrow [0,1]$ such that:
-\begin{itemize}
-\item $supp(\phi)\in\mathcal{K}$
-\item $\sum_{s\in S}\phi(s)=1$
-\end{itemize}
-We denote this set by $\vert (S,\mathcal{K})\vert$. We may think $[0,1]^S$ as the direct limit of $[0,1]^A$ where $A$ranges over all finite subsets of $S$. So we give the $\vert (S,\mathcal{K})\vert$ the subspace topology.
-\end{definition}
-
-
-\begin{definition}
-The geometric realization of an abstract simplical complex $(S,\mathcal{K})$ is given by the following formula: first we give a total order to $S$. Then, for any simplex $\sigma=\{s_{0}<s_{1}<\ldots<s_{q}\}$ we define $|\sigma|=\Delta^{q}$, the standar topological $q$-simplex and we asociate to the vertex $s_{q}$ the $q$-th vertex of $\Delta^{q}$. If $\tau=\{s_{0}<\ldots<s_{q}\}$ is a simplex and $\sigma=\{s_{q_{1}}<\ldots<s_{q_{k}}\}\subseteq\tau$, we define $i_{\sigma}^{\tau}\colon|\sigma|\to|\tau|$ to be the affine function such that maps the $j$-th vertex of $|\sigma|$ to the $q_{j}$-th vertex of $|\tau|$. Thus we take $|S|$ as the colimit over this system. If $f\colon(S_{1},\mathcal{K}_{1})\to(S_{2},\mathcal{K}_{2})$ it's a morphism of abstract simplicial complexes, then we can define $|f|\colon|S_{1}|\to|S_{2}|$ as the colimit of the affine functions $|f|_{\sigma}|\colon|\sigma|\to|f(\sigma)|$. $|-|\colon\mathcal{C}\to\mathcal{T}$ it's a functor.
-\end{definition}
 
 \begin{definition}
 Let $(S,\mathcal{K})$ be a complex. We say that $(S,\mathcal{K})$ is connected if for any pair of vertices $x,y$ of $(S,\mathcal{K})$ there is a path $\alpha$ such that $orig(\alpha)=x$ and $end(\alpha)=y$.
@@ -101,7 +89,7 @@ Let $(S,\mathcal{K})$ be a complex. We say that $(S,\mathcal{K})$ is connected i
 The following definition is due J. Rotman in \cite{rotman1973covering}.
 
 \begin{definition}
-Let $(S,\mathcal{K})$ be a complex. A covering of $(S,\mathcal{K})$ is a pair $((T,\mathcal{L}),p)$ where $(T,\mathcal{L})$ is a complex and $p\colon T\longrightarrow S$ is a morphism of complexes such that:
+Let $(S,\mathcal{K})$ be a complex. A covering of $(S,\mathcal{K})$ is a pair $((T,\mathcal{L}),p)$ where $(T,\mathcal{L})$ is a complex and $p\colon T\longrightarrow S$ is a simplicial map such that:
 \begin{itemize}
 \item $(T,\mathcal{L})$ is a connected complex.
 \item For every $\sigma\in\mathcal{K}$, $p^{-1}(\sigma)=\bigcup_{i\in I}\sigma_i$ where the family $\{\sigma_i\}_{i\in I}$ is a pairwise disjoint family of simplices of $\mathcal{L}$ such that $p|_{\sigma_i}\colon \sigma_i\longrightarrow \sigma$ is bijective.
@@ -112,8 +100,40 @@ The map $p$ is called projection and the simplices $\sigma_i$ are called sheets 
 We observe that $p$ is surjective and $(S,\mathcal{K})$ is connected. For our geometric porpoises we need a stronger definition of covering complex.
 
 \begin{definition}
-Let $(S,\mathcal{K})$ be a complex. A geometric covering of $(S,\mathcal{K})$ is a covering $((T,\mathcal{L}),p)$ such that for any simplex $\sigma\in\mathcal{L}_n$, $p(\sigma)\in\mathcal{K}_n$. In other words, $p$ preserves the dimension of the simplices.
+Let $(S,\mathcal{K})$ be a complex. A geometric covering of $(S,\mathcal{K})$ is a covering $((T,\mathcal{L}),p)$ such that for any simplex $\sigma\in\mathcal{L}_n$, $p(\sigma)\in\mathcal{K}_n$. In other words, $p$ preserves the dimension of the simplices. We have that geometric coverings preserve the dimension of the complexes.
 \end{definition}
+
+\begin{definition}
+Let  $(S,\mathcal{K})$ and $(T,\mathcal{L})$ be complexes and $f\colon (S,\mathcal{K})\longrightarrow (T,\mathcal{L})$ be a simplicial map. We say that $f$ reflects maximal simplices, if $\sigma\in\mathcal{K}$ is such that $f(\sigma)$ is a maximal simplex, then $\sigma$ is a maximal simplex.
+\end{definition}
+
+
+\begin{proposition}
+Let $(S,\mathcal{K})$ be a complex, and $((T,\mathcal{L}),p)$ a covering complex of $(S,\mathcal{K})$. Then $((T,\mathcal{L}),p)$ is a geometric covering complex of $(S,\mathcal{K})$ if and only if $p$ reflects maximal simplices.
+\end{proposition}
+
+\begin{proof}
+Conjetura
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Geometric Realization of Covering Complexes}
+
+\begin{definition}
+The geometric realization of a complex $(S,\mathcal{K})$ is the set of all function $\phi\colon S\longrightarrow [0,1]$ such that:
+\begin{itemize}
+\item $supp(\phi)\in\mathcal{K}$
+\item $\sum_{s\in S}\phi(s)=1$
+\end{itemize}
+We denote this set by $\vert (S,\mathcal{K})\vert$. We can give $\vert (S,\mathcal{K})\vert$ a metric topology given by:
+\[
+d(\phi,\psi)=\sqrt{\sum_{s\in S}(\phi(s)-\psi(s))^{2}}
+\]
+for $\phi,\psi\in \vert (S,\mathcal{K})\vert$. When we endowed $\vert (S,\mathcal{K})\vert$ with the metric topology we denote it by $\vert (S,\mathcal{K})\vert_d$. There is a second topology for $\vert (S,\mathcal{K})\vert$ called the coherent topology. We may think each simplex $\sigma\in\mathcal{K}$ as a complex, so for each simplex we have a geometric ralization $\vert\sigma\vert$. Then we have an inclusion $i_\sigma\colon\vert\sigma\vert\longrightarrow \vert (S,\mathcal{K})\vert_d$. The coherent topology on $\vert (S,\mathcal{K})\vert$ is the one which makes all the inclusions $i_\sigma$ continuous. Usually, $\vert (S,\mathcal{K})\vert$ is considered with the coherent topology.................
+\end{definition}
+
+
 
 
 \begin{proposition}
@@ -125,10 +145,8 @@ Let $\sigma\in\mathcal{K}$ be a maximal simplex with  $p^{-1}(\sigma)=\bigcup_{i
 \end{proof}
 
 
-
-
 \begin{proposition}
-Let $(S,\mathcal{K})$ be an abstract simplicial complex and $((T,\mathcal{L}),p)$ an abstract simplicial covering of $(S,\mathcal{K})$. Then $(\vert (T,\mathcal{L})\vert,\vert p\vert)$ is covering of $\vert (S,\mathcal{K})\vert$.
+Let $(S,\mathcal{K})$ be a complex and $((T,\mathcal{L}),p)$ a finite geometric covering of $(S,\mathcal{K})$. Then $(\vert (T,\mathcal{L})\vert,\vert p\vert)$ is covering of $\vert (S,\mathcal{K})\vert$.
 \end{proposition}
 
 \begin{proof}
