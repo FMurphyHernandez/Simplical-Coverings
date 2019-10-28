@@ -68,7 +68,7 @@ An abstract simplicial complex is a pair $(S,\mathcal{K})$ where $S$ is a set an
 \item $\bigcup\mathcal{K}=S$.
 \item If $\sigma\subseteq \tau$ and $\tau\in \mathcal{K}$ then $\sigma\in\mathcal{K}$.
 \end{itemize}
-We call complexes to the abstract simplicial complexes.  If $\sigma\in \mathcal{K}$, then the dimension of $\sigma$ is $\vert\sigma\vert-1$, and we denote it by $dim(\sigma)$. The elements of $\mathcal{K}$ of dimension $n$ are called $n$-simplices, and we denote the set of $n$-simplices by $\mathcal{K}_n$. The $0$-simplices are called vertices. The dimension of $(S,\mathcal{K})$ is defined as the supremum of $dim(\sigma)$ where $\sigma$ ranges over $\mathcal{K}$, we denote it by $dim(S,\mathcal{K})$. This dimension may be infinite. We call the complex $(S,\mathcal{K})$  finite, if $S$ is finite. In particular, a finite complex has finite dimension.
+We call complexes to the abstract simplicial complexes.  If $\sigma\in \mathcal{K}$, then the dimension of $\sigma$ is $\vert\sigma\vert-1$, and we denote it by $dim(\sigma)$. The elements of $\mathcal{K}$ of dimension $n$ are called $n$-simplices, and we denote the set of $n$-simplices by $\mathcal{K}_n$. The $0$-simplices are called vertices. The dimension of $(S,\mathcal{K})$ is defined as the supremum of $dim(\sigma)$ where $\sigma$ ranges over $\mathcal{K}$, we denote it by $dim(S,\mathcal{K})$. This dimension may be infinite. We call the complex $(S,\mathcal{K})$  finite, if $S$ is finite. In particular, a finite complex has finite dimension. A complex $(S,\mathcal{K})$ is called discrete, if $\mathcal{K}=\{\{s\}\mid s\in S\}$.
 
 An edge $e$ in $(S,\mathcal{K})$ is a pair of vertices  $(x,y)$ where $\{x,y\}\in\mathcal{K}$, $x$ is the origin of the edge $e$ and we denote it by $orig(e)$, and $y$ is the end of the edge $e$ and we denote by $end(e)$. A path $\alpha$ in $(S,\mathcal{K})$ is a finite sequence of edges $e_1,\dots,e_n$ such that $end(e_i)=orig(e_{i+1})$ with $i=1,\dots,n-1$. We define $orig(\alpha)=orig(e_1)$ and $end(\alpha)=end(e_n)$. 
 
@@ -104,6 +104,15 @@ We observe that $p$ is surjective and $(S,\mathcal{K})$ is connected. For our ge
 Let $(S,\mathcal{K})$ be a complex. A geometric covering of $(S,\mathcal{K})$ is a covering $((T,\mathcal{L}),p)$ such that for any simplex $\sigma\in\mathcal{L}_n$, $p(\sigma)\in\mathcal{K}_n$. In other words, $p$ preserves the dimension of the simplices. We have that geometric coverings preserve the dimension of the complexes.
 \end{definition}
 
+
+\begin{proposition}
+Let $(S,\mathcal{K})$ be a complex, and $((T,\mathcal{L}),p)$ a covering complex of $(S,\mathcal{K})$. If $\sigma\in\mathcal{K}$ is a maximal simplex, then $p^{-1}$ is the disjoint union of maximal simplices.
+\end{proposition}
+
+\begin{proof}
+Let $\sigma\in\mathcal{K}$ be a maximal simplex with  $p^{-1}(\sigma)=\bigcup_{i\in I}\sigma_i$ where the family $\{\sigma_i\}_{i\in I}$ is a pairwise disjoint family of simplices of $\mathcal{K}$ such that $p|_{\sigma_i}\colon \sigma_i\longrightarrow \sigma$ is bijective. If $\sigma_j$ is not maximal for some $j\in I$, then there is a simplex $\tau\in\mathcal{L}$ such that $\sigma_j\subset \tau$. As $\sigma$ is maximal and $\sigma=p(\sigma_j)\subseteq p(\tau)$, we have that $p(\tau)=\sigma$. This contradicts the fact that $p$ preserves the dimension. Therefore $\sigma_i$ is a maximal simplex.
+\end{proof}
+
 \begin{definition}
 Let  $(S,\mathcal{K})$ and $(T,\mathcal{L})$ be complexes and $f\colon (S,\mathcal{K})\longrightarrow (T,\mathcal{L})$ be a simplicial map. We say that $f$ reflects maximal simplices, if $\sigma\in\mathcal{K}$ is such that $f(\sigma)$ is a maximal simplex, then $\sigma$ is a maximal simplex.
 \end{definition}
@@ -116,6 +125,8 @@ Let $(S,\mathcal{K})$ be a finite dimensional complex, and $((T,\mathcal{L}),p)$
 \begin{proof}
 Conjetura
 \end{proof}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -131,19 +142,13 @@ We denote this set by $\vert (S,\mathcal{K})\vert$. We can give $\vert (S,\mathc
 \[
 d(\phi,\psi)=\sqrt{\sum_{s\in S}(\phi(s)-\psi(s))^{2}}
 \]
-for $\phi,\psi\in \vert (S,\mathcal{K})\vert$. When we endowed $\vert (S,\mathcal{K})\vert$ with the metric topology we denote it by $\vert (S,\mathcal{K})\vert_d$. There is a second topology for $\vert (S,\mathcal{K})\vert$ called the coherent topology. Foer each simplex $\sigma\in\mathcal{K}$, we define its geometric realization $\vert\sigma\vert$ as the set of functions $\phi\in \vert (S,\mathcal{K})\vert$ with $supp(\phi)\subseteq \sigma$. We give to $\vert \sigma\vert$ the subspace topology inherited as subset of $\vert (S,\mathcal{K})\vert$. If we consider the inclusion $i_\sigma\colon\vert\sigma\vert\longrightarrow \vert (S,\mathcal{K})\vert$, then coherent topology on $\vert (S,\mathcal{K})\vert$ is the largest topology which makes all the inclusions continuous. Usually, $\vert (S,\mathcal{K})\vert$ is considered with the coherent topology. We may characterize $\vert (S,\mathcal{K})\vert$ as the colimit  in $\mathcal{T}$ of the geometric realization of its simplices. So a function $f\colon\vert (S,\mathcal{K})\vert\longrightarrow X$ is continuous if and only its restrictions to $\vert\sigma\vert$ is continuous for all $\sigma\in\mathcal{K}$. Especially, the identity $\vert (S,\mathcal{K})\vert\longrightarrow \vert (S,\mathcal{K})\vert_d$ is continuous, so the coherent topology contains the metric topology.
+for $\phi,\psi\in \vert (S,\mathcal{K})\vert$. When we endowed $\vert (S,\mathcal{K})\vert$ with the metric topology we denote it by $\vert (S,\mathcal{K})\vert_d$. There is a second topology for $\vert (S,\mathcal{K})\vert$ called the coherent topology. Foer each simplex $\sigma\in\mathcal{K}$, we define its geometric realization $\vert\sigma\vert$ as the set of functions $\phi\in \vert (S,\mathcal{K})\vert$ with $supp(\phi)\subseteq \sigma$. We give to $\vert \sigma\vert$ the subspace topology inherited as subset of $\vert (S,\mathcal{K})\vert$. If we consider the inclusion $i_\sigma\colon\vert\sigma\vert\longrightarrow \vert (S,\mathcal{K})\vert$, then coherent topology on $\vert (S,\mathcal{K})\vert$ is the largest topology which makes all the inclusions continuous. Usually, $\vert (S,\mathcal{K})\vert$ is considered with the coherent topology. We may characterize $\vert (S,\mathcal{K})\vert$ as the colimit  in $\mathcal{T}$ of the geometric realization of its simplices. So a function $f\colon\vert (S,\mathcal{K})\vert\longrightarrow X$ is continuous if and only its restrictions to $\vert\sigma\vert$ is continuous for all $\sigma\in\mathcal{K}$. Especially, the identity $\vert (S,\mathcal{K})\vert\longrightarrow \vert (S,\mathcal{K})\vert_d$ is continuous, so the coherent topology contains the metric topology. In particular, if $(S,\mathcal{K})$ is a finite complex, then both topologies coincide.
 \end{definition}
 
 
 
 
-\begin{proposition}
-Let $(S,\mathcal{K})$ be a complex, and $((T,\mathcal{L}),p)$ a covering complex of $(S,\mathcal{K})$. If $\sigma\in\mathcal{K}$ is a maximal simplex, then $p^{-1}$ is the disjoint union of maximal simplices.
-\end{proposition}
 
-\begin{proof}
-Let $\sigma\in\mathcal{K}$ be a maximal simplex with  $p^{-1}(\sigma)=\bigcup_{i\in I}\sigma_i$ where the family $\{\sigma_i\}_{i\in I}$ is a pairwise disjoint family of simplices of $\mathcal{K}$ such that $p|_{\sigma_i}\colon \sigma_i\longrightarrow \sigma$ is bijective. If $\sigma_j$ is not maximal for some $j\in I$, then there is a simplex $\tau\in\mathcal{L}$ such that $\sigma_j\subset \tau$. As $\sigma$ is maximal and $\sigma=p(\sigma_j)\subseteq p(\tau)$, we have that $p(\tau)=\sigma$. This contradicts the fact that $p$ preserves the dimension. Therefore $\sigma_i$ is a maximal simplex.
-\end{proof}
 
 
 \begin{proposition}
