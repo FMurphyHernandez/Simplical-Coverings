@@ -132,7 +132,7 @@ Conjetura
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Geometric Realization of Covering Complexes}
 
-\begin{definition}
+\begin{definition}[Geometric Realization]
 The geometric realization of a complex $(S,\mathcal{K})$ is the set of all function $\phi\colon S\longrightarrow [0,1]$ such that:
 \begin{itemize}
 \item $supp(\phi)\in\mathcal{K}$
@@ -145,19 +145,21 @@ d(\phi,\psi)=\sqrt{\sum_{s\in S}(\phi(s)-\psi(s))^{2}}
 for $\phi,\psi\in \vert (S,\mathcal{K})\vert$. When we endowed $\vert (S,\mathcal{K})\vert$ with the metric topology we denote it by $\vert (S,\mathcal{K})\vert_d$. There is a second topology for $\vert (S,\mathcal{K})\vert$ called the coherent topology. Foer each simplex $\sigma\in\mathcal{K}$, we define its geometric realization $\vert\sigma\vert$ as the set of functions $\phi\in \vert (S,\mathcal{K})\vert$ with $supp(\phi)\subseteq \sigma$. We give to $\vert \sigma\vert$ the subspace topology inherited as subset of $\vert (S,\mathcal{K})\vert$. If we consider the inclusion $i_\sigma\colon\vert\sigma\vert\longrightarrow \vert (S,\mathcal{K})\vert$, then coherent topology on $\vert (S,\mathcal{K})\vert$ is the largest topology which makes all the inclusions continuous. Usually, $\vert (S,\mathcal{K})\vert$ is considered with the coherent topology. We may characterize $\vert (S,\mathcal{K})\vert$ as the colimit  in $\mathcal{T}$ of the geometric realization of its simplices. So a function $f\colon\vert (S,\mathcal{K})\vert\longrightarrow X$ is continuous if and only its restrictions to $\vert\sigma\vert$ is continuous for all $\sigma\in\mathcal{K}$. Especially, the identity $\vert (S,\mathcal{K})\vert\longrightarrow \vert (S,\mathcal{K})\vert_d$ is continuous, so the coherent topology contains the metric topology. In particular, if $(S,\mathcal{K})$ is a finite complex, then both topologies coincide.
 \end{definition}
 
-Hay que decir como manda fucniones en funciones...
 
 \begin{definition}
 Let $(S,\mathcal{K})$ be a complex and $s\in S$. We define $\phi_s\colon S\longrightarrow [0,1]$ as $\phi_s(t)=\delta_{st}$ for any $t\in S$ where $\delta$ is the Kronecker's delta.
 \end{definition}
 
+\begin{definition}
+If $f\colon (S,\mathcal{K})\longrightarrow (T,\mathcal{L})$ is a simplicial map, then it induces a continuous function $\vert f\vert\colon \vert(S,\mathcal{K})\vert\longrightarrow \vert(T,\mathcal{L})\vert$. If $\phi\in \vert(S,\mathcal{K})\vert$ with $\sigma=supp(\phi)$ then $\phi=\sum_{s\in\sigma}\phi(s)\phi_s$. So  we define $\vert f\vert (\phi):=\sum_{s\in \sigma}\phi(s)\phi_{f(s)}$. In this way, the geometric realization is a functor from $\mathcal{C}$ to $\mathcal{T}$.
+\end{definition}
 
 \begin{proposition}
 Let $(S,\mathcal{K})$ be a complex and $((T,\mathcal{L}),p)$ a finite geometric covering of $(S,\mathcal{K})$. Then $\vert (T,\mathcal{L}), p)\vert $ is covering of $\vert (S,\mathcal{K})\vert$.
 \end{proposition}
 
 \begin{proof}
-Let $\phi\in \vert (S,\mathcal{K})\vert$ with $supp(\phi)=\sigma\in\mathcal{K}$. We define $R=\min\{\frac{d(\phi,\phi_s}{2}\mid s\in\sigma\}$.
+Let $\phi\in \vert (S,\mathcal{K})\vert$ with $supp(\phi)=\sigma\in\mathcal{K}$. Then $p^{-1}(\sigma)=\bigcup_{i\in I}\sigma_i$ where the family $\{\sigma_i\}_{i\in I}$ is a pairwise disjoint family of simplices of $\mathcal{L}$ such that $p|_{\sigma_i}\colon \sigma_i\longrightarrow \sigma$ is bijective.  We define $R=\min\{\frac{d(\phi,\phi_s}{2}\mid s\in\sigma\}$. So $\mathbb{B}_R(\phi)$ is an open neighborhood of $\phi$. We affirm that $\vert p\vert^{-1}(\mathbb{B}_R(\phi))=\bigcup_{i\in I}\mathbb{B}_R(\phi_i)$
 \end{proof}
 
 \begin{proposition}
