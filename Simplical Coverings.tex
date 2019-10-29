@@ -145,10 +145,11 @@ d(\phi,\psi)=\sqrt{\sum_{s\in S}(\phi(s)-\psi(s))^{2}}
 for $\phi,\psi\in \vert (S,\mathcal{K})\vert$. When we endowed $\vert (S,\mathcal{K})\vert$ with the metric topology we denote it by $\vert (S,\mathcal{K})\vert_d$. There is a second topology for $\vert (S,\mathcal{K})\vert$ called the coherent topology. Foer each simplex $\sigma\in\mathcal{K}$, we define its geometric realization $\vert\sigma\vert$ as the set of functions $\phi\in \vert (S,\mathcal{K})\vert$ with $supp(\phi)\subseteq \sigma$. We give to $\vert \sigma\vert$ the subspace topology inherited as subset of $\vert (S,\mathcal{K})\vert$. If we consider the inclusion $i_\sigma\colon\vert\sigma\vert\longrightarrow \vert (S,\mathcal{K})\vert$, then coherent topology on $\vert (S,\mathcal{K})\vert$ is the largest topology which makes all the inclusions continuous. Usually, $\vert (S,\mathcal{K})\vert$ is considered with the coherent topology. We may characterize $\vert (S,\mathcal{K})\vert$ as the colimit  in $\mathcal{T}$ of the geometric realization of its simplices. So a function $f\colon\vert (S,\mathcal{K})\vert\longrightarrow X$ is continuous if and only its restrictions to $\vert\sigma\vert$ is continuous for all $\sigma\in\mathcal{K}$. Especially, the identity $\vert (S,\mathcal{K})\vert\longrightarrow \vert (S,\mathcal{K})\vert_d$ is continuous, so the coherent topology contains the metric topology. In particular, if $(S,\mathcal{K})$ is a finite complex, then both topologies coincide.
 \end{definition}
 
+Hay que decir como manda fucniones en funciones...
 
-
-
-
+\begin{definition}
+Let $(S,\mathcal{K})$ be a complex and $s\in S$. We define $\phi_s\colon S\longrightarrow [0,1]$ as $\phi_s(t)=\delta_{st}$ for any $t\in S$ where $\delta$ is the Kronecker's delta.
+\end{definition}
 
 
 \begin{proposition}
@@ -156,8 +157,25 @@ Let $(S,\mathcal{K})$ be a complex and $((T,\mathcal{L}),p)$ a finite geometric 
 \end{proposition}
 
 \begin{proof}
+Let $\phi\in \vert (S,\mathcal{K})\vert$ with $supp(\phi)=\sigma\in\mathcal{K}$. We define $R=\min\{\frac{d(\phi,\phi_s}{2}\mid s\in\sigma\}$.
+\end{proof}
+
+\begin{proposition}
+Let $(S,\mathcal{K})$ be a complex and $((T,\mathcal{L}),p)$ a finite dimensional geometric covering of $(S,\mathcal{K})$. Then $\vert (T,\mathcal{L}), p)\vert $ is covering of $\vert (S,\mathcal{K})\vert$.
+\end{proposition}
+
+\begin{proof}
 
 \end{proof}
+
+\begin{proposition}
+Let $(S,\mathcal{K})$ be a complex and $((T,\mathcal{L}),p)$ a geometric covering of $(S,\mathcal{K})$. Then $\vert (T,\mathcal{L}), p)\vert $ is covering of $\vert (S,\mathcal{K})\vert$.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Geometric Realization of the Universal Covering Complex}
