@@ -68,13 +68,16 @@ An abstract simplicial complex is a pair $(S,\mathcal{K})$ where $S$ is a set an
 \item $\bigcup\mathcal{K}=S$.
 \item If $\sigma\subseteq \tau$ and $\tau\in \mathcal{K}$ then $\sigma\in\mathcal{K}$.
 \end{itemize}
-We call complexes to the abstract simplicial complexes.  If $\sigma\in \mathcal{K}$, then the dimension of $\sigma$ is $\vert\sigma\vert-1$, and we denote it by $dim(\sigma)$. The elements of $\mathcal{K}$ of dimension $n$ are called $n$-simplices, and we denote the set of $n$-simplices by $\mathcal{K}_n$. The $0$-simplices are called vertices. The dimension of $(S,\mathcal{K})$ is defined as the supremum of $dim(\sigma)$ where $\sigma$ ranges over $\mathcal{K}$, we denote it by $dim(S,\mathcal{K})$. This dimension may be infinite. We call the complex $(S,\mathcal{K})$  finite, if $S$ is finite. In particular, a finite complex has finite dimension. A complex $(S,\mathcal{K})$ is called discrete, if $\mathcal{K}=\{\{s\}\mid s\in S\}$.
+We call complexes to the abstract simplicial complexes.  If $\sigma\in \mathcal{K}$, then the dimension of $\sigma$ is $\vert\sigma\vert-1$, and we denote it by $dim(\sigma)$. The elements of $\mathcal{K}$ of dimension $n$ are called $n$-simplices, and we denote the set of $n$-simplices by $\mathcal{K}_n$. We define the $n$-skeleton of $(S,\mathcal{K})$ as the complex $(S,\bigcup_{m=1}^0\mathcal{K}_m)$, and we denote it by $sk_n(S,\mathcal{K})$. The $0$-simplices are called vertices. The dimension of $(S,\mathcal{K})$ is defined as the supremum of $dim(\sigma)$ where $\sigma$ ranges over $\mathcal{K}$, we denote it by $dim(S,\mathcal{K})$. This dimension may be infinite. We call the complex $(S,\mathcal{K})$  finite, if $S$ is finite. In particular, a finite complex has finite dimension. A complex $(S,\mathcal{K})$ is called indiscrete, if $\mathcal{K}=\{\{s\}\mid s\in S\}$.
 
 An edge $e$ in $(S,\mathcal{K})$ is a pair of vertices  $(x,y)$ where $\{x,y\}\in\mathcal{K}$, $x$ is the origin of the edge $e$ and we denote it by $orig(e)$, and $y$ is the end of the edge $e$ and we denote by $end(e)$. A path $\alpha$ in $(S,\mathcal{K})$ is a finite sequence of edges $e_1,\dots,e_n$ such that $end(e_i)=orig(e_{i+1})$ with $i=1,\dots,n-1$. We define $orig(\alpha)=orig(e_1)$ and $end(\alpha)=end(e_n)$. 
 
-A morphism between complex $(S_1,\mathcal{K}_1)$ and $(S_2,\mathcal{K}_2)$ is a map $f\colon S_1\longrightarrow S_2$ such that $f(\sigma)\in \mathcal{K}_2$ for any $\sigma\in\mathcal{K}_2$. We call a morphism of complexes a simplicial map. We  denote by $\mathcal{C}$ to the category of complexes and simplicial maps.
+A morphism between complex $(S_1,\mathcal{K}^1)$ and $(S_2,\mathcal{K}^2)$ is a map $f\colon S_1\longrightarrow S_2$ such that $f(\sigma)\in \mathcal{K}^2$ for any $\sigma\in\mathcal{K}^1$. We call a morphism of complexes a simplicial map. We  denote by $\mathcal{C}$ to the category of complexes and simplicial maps.
 
-As reference of complexes, we recommend \cite{singer2015lecture}  and \cite{spanier1989algebraic}.
+If $X$ is a non empty set, we denote by $D(X)$ the complex given $(X,\mathcal{D}_X)$ where $\mathcal{D}_X$ is the set of all non empty finite subsets of $X$. .As reference of complexes, we recommend \cite{singer2015lecture}  and \cite{spanier1989algebraic}.
+
+
+We denote by $\mathbb{P}(X)$ the power set of a set of $X$. If $f\colon X\longrightarrow Y$ is a function, then $f$ induces a map $f_\circ \mathbb{P}(X)\longrightarrow \mathbb{P}(Y)$ where $f_\circ(A)$ is the direct image of $A$ under $f$ for $A\in\mathbb{P}(X)$. 
 
 We  denote by $\mathcal{T}$ to the category of topological spaces and continuous maps.
 
@@ -101,9 +104,12 @@ The map $p$ is called projection and the simplices $\sigma_i$ are called sheets 
 We observe that $p$ is surjective and $(S,\mathcal{K})$ is connected. For our geometric porpoises we need a stronger definition of covering complex.
 
 \begin{definition}
-Let $(S,\mathcal{K})$ be a complex. A geometric covering of $(S,\mathcal{K})$ is a covering $((T,\mathcal{L}),p)$ such that for any simplex $\sigma\in\mathcal{L}_n$, $p(\sigma)\in\mathcal{K}_n$. In other words, $p$ preserves the dimension of the simplices. We have that geometric coverings preserve the dimension of the complexes.
+Let $(S,\mathcal{K})$ be a complex. A geometric covering of $(S,\mathcal{K})$ is a covering $((T,\mathcal{L}),p)$ such that for any simplex $\sigma\in\mathcal{L}_n$, $p(\sigma)\in\mathcal{K}_n$. In other words, $p$ preserves the dimension of the simplices. We have that geometric coverings preserve the dimension of the complexes. By definition all geometric coverings are coverings.
 \end{definition}
 
+\begin{example}
+Let $(S,\mathcal{K})$ be the complex $D(\mathbb{Z}_2)$, and $(T,\mathcal{L})$ be the complex  $D(\mathbb{Z}_4)$. We consider the canonical projection $p\colon \mathbb{Z}_4\longrightarrow \mathbb{Z}_2$ which is a simplicial map. This simplicial map does not preserve the dimension of the simplices.  We notice that $p^{-1}(\{[0]\})=\{[0]\}\cup\{[2]\}$, $p^{-1}(\{[1]\})=\{[1]\}\cup\{[3]\}$, and $p^{-1}(\{[0],[1]\})=\{[0],[2]\}\cup\{[1],[3]\}$ and $D(\mathbb{Z}_4)$ is a connected complex, so $p$ is a covering which is not a geometric covering.
+\end{example}
 
 \begin{proposition}
 Let $(S,\mathcal{K})$ be a complex, and $((T,\mathcal{L}),p)$ a covering complex of $(S,\mathcal{K})$. If $\sigma\in\mathcal{K}$ is a maximal simplex, then $p^{-1}$ is the disjoint union of maximal simplices.
@@ -126,7 +132,23 @@ Let $(S,\mathcal{K})$ be a finite dimensional complex, and $((T,\mathcal{L}),p)$
 Conjetura
 \end{proof}
 
+Let $(S,\mathcal{K})$ and $(T,\mathcal{L})$ be complexes and $f\colon S\longrightarrow T$ be a function. We notice that $f$ is a simplicial map....
 
+\begin{definition}
+Let $(S,\mathcal{K})$ be a complex. A combinatoric covering of $(S,\mathcal{K})$ is a covering $((T,\mathcal{L}),p)$ such that $p_*^{-1}(\sigma)$ is a family of pairwise disjoint simplices.
+\end{definition}
+
+\begin{example}
+Let $(S,\mathcal{K})$ be the complex $D(\mathbb{Z}_2)$, and $(T,\mathcal{L})$ be the complex  $sk_1(D(\mathbb{Z}_4))$. We consider the canonical projection $p\colon \mathbb{Z}_4\longrightarrow \mathbb{Z}_2$ which is a simplicial map.  This map is a  geometric covering complex, but is not a combinatoric complex as $p_*^{-1}(\{[0]\})=\{\{[0]\},\{[2]\},\{[0],[2]\}\}$ is not pairwise disjoint.
+\end{example}
+
+\begin{proposition}
+Let $(S,\mathcal{K})$ be a complex, and $((T,\mathcal{L}),p)$ a combinatoric covering complex of $(S,\mathcal{K})$. Then $((T,\mathcal{L}),p)$ is a geometric covering complex.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -145,6 +167,7 @@ d(\phi,\psi)=\sqrt{\sum_{s\in S}(\phi(s)-\psi(s))^{2}}
 for $\phi,\psi\in \vert (S,\mathcal{K})\vert$. When we endowed $\vert (S,\mathcal{K})\vert$ with the metric topology we denote it by $\vert (S,\mathcal{K})\vert_d$. There is a second topology for $\vert (S,\mathcal{K})\vert$ called the coherent topology. Foer each simplex $\sigma\in\mathcal{K}$, we define its geometric realization $\vert\sigma\vert$ as the set of functions $\phi\in \vert (S,\mathcal{K})\vert$ with $supp(\phi)\subseteq \sigma$. We give to $\vert \sigma\vert$ the subspace topology inherited as subset of $\vert (S,\mathcal{K})\vert$. If we consider the inclusion $i_\sigma\colon\vert\sigma\vert\longrightarrow \vert (S,\mathcal{K})\vert$, then coherent topology on $\vert (S,\mathcal{K})\vert$ is the largest topology which makes all the inclusions continuous. Usually, $\vert (S,\mathcal{K})\vert$ is considered with the coherent topology. We may characterize $\vert (S,\mathcal{K})\vert$ as the colimit  in $\mathcal{T}$ of the geometric realization of its simplices. So a function $f\colon\vert (S,\mathcal{K})\vert\longrightarrow X$ is continuous if and only its restrictions to $\vert\sigma\vert$ is continuous for all $\sigma\in\mathcal{K}$. Especially, the identity $\vert (S,\mathcal{K})\vert\longrightarrow \vert (S,\mathcal{K})\vert_d$ is continuous, so the coherent topology contains the metric topology. In particular, if $(S,\mathcal{K})$ is a finite complex, then both topologies coincide.
 \end{definition}
 
+We observe that if $\sigma, \tau\in\mathcal{K}$ are disjoint, then $\vert\sigma\vert$ and $\vert\tau\vert$ are disjoint.
 
 \begin{definition}
 Let $(S,\mathcal{K})$ be a complex and $s\in S$. We define $\phi_s\colon S\longrightarrow [0,1]$ as $\phi_s(t)=\delta_{st}$ for any $t\in S$ where $\delta$ is the Kronecker's delta.
