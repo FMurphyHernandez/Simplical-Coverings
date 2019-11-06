@@ -10,6 +10,10 @@
 \usepackage{hyperref}
 \usepackage{enumerate}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Topology and its Applications
+%Rocky Mountain Journal
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}{Lemma}[section]
@@ -23,20 +27,24 @@
 
 \begin{document}
 
-\title{Simplicial Coverings}
+\title{Geometric Realization of Covering Complexes}
 
 \author{Frank Murphy-Hernandez\\Luis Alberto Mac\'ias-Barrales}
 \address{Facultad de Ciencias, UNAM, Mexico City}
 \email{murphy@ciencias.unam.mx}
 
+\author{Luis Mac\'ias-Barrales}
+\address{Instituto de Matem\'aticas, UNAM, Mexico City}
+\email{}
+
 \subjclass[2000]{Primary ****, ****; Secondary ****, ****}
 
 \date{\today}
 
-\keywords{Simplicial Sets, Coverings}
+\keywords{Abstract Simplicial Complexes, Coverings, Fundamental Group}
 
 \begin{abstract}
-
+We prove that the geometric realization of a covering complex is a covering space. Also, this holds true for the universal covering complex.
 \end{abstract}
 
 \maketitle
@@ -44,17 +52,31 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Introduction}
 
+The theory of abstract simplicial complexes is a useful tool in the calculation of fundamental groups. This fact appears explicitly in the paper \cite{weil1960discrete} of A. Weil, .....
+For any connected abstract simplicial complex $S$ is edge-path group $E(S)$ is naturally isomorphic to the fundamental group of its geometric realization $\pi_1(\vert S\vert)$. The edge-path group could be described explicitly by  generators and relations. As reference for these facts, see the book of I. Singer and J. Thorpe \cite{singer2015lecture}.
 
+We base our definition of covering complex given by J. Rotman in \cite{rotman1973covering}, but there are other definitions covering complex as the one in \cite{abello1991complexity}. The definition of J. Rotman
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preliminaries}
 
-We denote by $\mathcal{S}_f$ the category of finite sets.
 
-We denote by $\Delta$ the simplex category and by $s\mathcal{S}$ the category of simplicial sets.
+We recall that, given a topological space $X$, a covering space on $X$ it's a continuous map $p\colon E\to X$, such that for every $x\in X$, there is an open neighborhood $U$ such that $p^{-1}(U)$ it is a disjoint union of open sets $U_{\lambda}$, $\lambda\in\Lambda$, and $p|_{U_{\lambda}}\colon U_{\lambda}\to U$ it's a homeomorphism. We recommend the book of P. May \cite{may1999concise} and the book of J. Rotman \cite{rotman2013introduction} as reference of covering spaces.
 
-\cite{goerss2009simplicial}
-\cite{may1992simplicial}
+An abstract simplicial complex is a pair $(S,\mathcal{K})$ where $S$ is a set and $\mathcal{K}$ is a family of non-empty finite subsets of $S$ such that:
+\begin{itemize}
+\item $\bigcup\mathcal{K}=S$.
+\item If $\sigma\subseteq \tau$ and $\tau\in \mathcal{K}$ then $\sigma\in\mathcal{K}$.
+\end{itemize}
+We call complexes to the abstract simplicial complexes.  If $\sigma\in \mathcal{K}$, then the dimension of $\sigma$ is $\vert\sigma\vert-1$, and we denote it by $dim(\sigma)$. The elements of $\mathcal{K}$ of dimension $n$ are called $n$-simplices, and we denote the set of $n$-simplices by $\mathcal{K}_n$. The $0$-simplices are called vertices. The dimension of $(S,\mathcal{K})$ is defined as the supremum of $dim(\sigma)$ where $\sigma$ ranges over $\mathcal{K}$, we denote it by $dim(S,\mathcal{K})$. This dimension may be infinite. We call the complex $(S,\mathcal{K})$  finite, if $S$ is finite. In particular, a finite complex has finite dimension. A complex $(S,\mathcal{K})$ is called discrete, if $\mathcal{K}=\{\{s\}\mid s\in S\}$.
+
+An edge $e$ in $(S,\mathcal{K})$ is a pair of vertices  $(x,y)$ where $\{x,y\}\in\mathcal{K}$, $x$ is the origin of the edge $e$ and we denote it by $orig(e)$, and $y$ is the end of the edge $e$ and we denote by $end(e)$. A path $\alpha$ in $(S,\mathcal{K})$ is a finite sequence of edges $e_1,\dots,e_n$ such that $end(e_i)=orig(e_{i+1})$ with $i=1,\dots,n-1$. We define $orig(\alpha)=orig(e_1)$ and $end(\alpha)=end(e_n)$.
+
+A morphism between complex $(S_1,\mathcal{K}_1)$ and $(S_2,\mathcal{K}_2)$ is a map $f\colon S_1\longrightarrow S_2$ such that $f(\sigma)\in \mathcal{K}_2$ for any $\sigma\in\mathcal{K}_2$. We call a morphism of complexes a simplicial map. We  denote by $\mathcal{C}$ to the category of complexes and simplicial maps.
+
+As reference of complexes, we recommend \cite{singer2015lecture}  and \cite{spanier1989algebraic}.
+
+We  denote by $\mathcal{T}$ to the category of topological spaces and continuous maps.
 
 An abstract simplicial complex is a pair $(S,\mathcal{K})$ where $S$ is a set and $\mathcal{K}$ is a family of non-empty finite subsets of $S$ such that, if $\sigma\subseteq \tau$, $\sigma\neq\emptyset$ and $\tau\in \mathcal{K}$ then $\sigma\in\mathcal{K}$. A morphism between abstract simplicial complexes $f\colon(S_1,\mathcal{K}_1)\to(S_2,\mathcal{K}_2)$ it's a funtion $f\colon S_{1}\to S_{2}$ such that $f(\sigma)\in\mathcal{K}_{2}$ for any simplex $\sigma\in\mathcal{K}_{1}$. We will denote $\mathcal{C}$ to the category of abstract simplicial complexes.
 
@@ -64,7 +86,54 @@ The geometric realization of an abstract simplical complex $(S,\mathcal{K})$ is 
 We shall recall that, given a topological space $X$, a covering space on $X$ it's a continuous map $p\colon E\to X$, such that for every $x\in X$, there is an open neighborhood $U$ such that $p^{-1}(U)$ it's a disjoint union of open sets $U_{\lambda}$, $\lambda\in\Lambda$, and $p|_{U_{\lambda}}\colon U_{\lambda}\to U$ it's a homeomorphism.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Abstract Simplicial Coverings}
+\section{Geometric Covering Complexes}
+
+
+\begin{definition}
+Let $(S,\mathcal{K})$ be a complex. We say that $(S,\mathcal{K})$ is connected if for any pair of vertices $x,y$ of $(S,\mathcal{K})$ there is a path $\alpha$ such that $orig(\alpha)=x$ and $end(\alpha)=y$.
+\end{definition}
+
+The following definition is due J. Rotman in \cite{rotman1973covering}.
+
+\begin{definition}
+Let $(S,\mathcal{K})$ be a complex. A covering of $(S,\mathcal{K})$ is a pair $((T,\mathcal{L}),p)$ where $(T,\mathcal{L})$ is a complex and $p\colon T\longrightarrow S$ is a simplicial map such that:
+\begin{itemize}
+\item $(T,\mathcal{L})$ is a connected complex.
+\item For every $\sigma\in\mathcal{K}$, $p^{-1}(\sigma)=\bigcup_{i\in I}\sigma_i$ where the family $\{\sigma_i\}_{i\in I}$ is a pairwise disjoint family of simplices of $\mathcal{L}$ such that $p|_{\sigma_i}\colon \sigma_i\longrightarrow \sigma$ is bijective.
+\end{itemize}
+The map $p$ is called projection and the simplices $\sigma_i$ are called sheets over $\sigma$.
+\end{definition}
+
+We observe that $p$ is surjective and $(S,\mathcal{K})$ is connected. For our geometric porpoises we need a stronger definition of covering complex.
+
+\begin{definition}
+Let $(S,\mathcal{K})$ be a complex. A geometric covering of $(S,\mathcal{K})$ is a covering $((T,\mathcal{L}),p)$ such that for any simplex $\sigma\in\mathcal{L}_n$, $p(\sigma)\in\mathcal{K}_n$. In other words, $p$ preserves the dimension of the simplices. We have that geometric coverings preserve the dimension of the complexes.
+\end{definition}
+
+
+\begin{proposition}
+Let $(S,\mathcal{K})$ be a complex, and $((T,\mathcal{L}),p)$ a covering complex of $(S,\mathcal{K})$. If $\sigma\in\mathcal{K}$ is a maximal simplex, then $p^{-1}$ is the disjoint union of maximal simplices.
+\end{proposition}
+
+\begin{proof}
+Let $\sigma\in\mathcal{K}$ be a maximal simplex with  $p^{-1}(\sigma)=\bigcup_{i\in I}\sigma_i$ where the family $\{\sigma_i\}_{i\in I}$ is a pairwise disjoint family of simplices of $\mathcal{K}$ such that $p|_{\sigma_i}\colon \sigma_i\longrightarrow \sigma$ is bijective. If $\sigma_j$ is not maximal for some $j\in I$, then there is a simplex $\tau\in\mathcal{L}$ such that $\sigma_j\subset \tau$. As $\sigma$ is maximal and $\sigma=p(\sigma_j)\subseteq p(\tau)$, we have that $p(\tau)=\sigma$. This contradicts the fact that $p$ preserves the dimension. Therefore $\sigma_i$ is a maximal simplex.
+\end{proof}
+
+\begin{definition}
+Let  $(S,\mathcal{K})$ and $(T,\mathcal{L})$ be complexes and $f\colon (S,\mathcal{K})\longrightarrow (T,\mathcal{L})$ be a simplicial map. We say that $f$ reflects maximal simplices, if $\sigma\in\mathcal{K}$ is such that $f(\sigma)$ is a maximal simplex, then $\sigma$ is a maximal simplex.
+\end{definition}
+
+
+\begin{proposition}
+Let $(S,\mathcal{K})$ be a finite dimensional complex, and $((T,\mathcal{L}),p)$ a covering complex of $(S,\mathcal{K})$. Then $((T,\mathcal{L}),p)$ is a geometric covering complex of $(S,\mathcal{K})$ if and only if $p$ reflects maximal simplices.
+\end{proposition}
+
+\begin{proof}
+Conjetura
+\end{proof}
+
+
+
 
 \begin{definition}
 Let $(S,\mathcal{K})$ an abstract simplicial complex. An abstract simplicial covering on $(S,\mathcal{K})$ it's a simplicial map $p\colon(E,\mathcal{L})\to(S,\mathcal{K})$ such that for each simplex $\sigma\in\mathcal{K}$, $p^{-1}(\sigma)=\amalg_{\lambda\in\Lambda}\sigma_{\lambda}$ were $\sigma_{\lambda}\in\mathcal{L}$ and $p|_{\sigma_{\lambda}}\colon \sigma_{\lambda}\to \sigma$ it is onto and one to one, for each $\lambda\in\Lambda$.
@@ -75,19 +144,58 @@ Let $p\colon(E,\mathcal{L})\to(S,\mathcal{K})$ be an abstract simplicial coverin
 \end{proposition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Simplicial Coverings}
+\section{Geometric Realization of Covering Complexes}
+
+\begin{definition}[Geometric Realization]
+The geometric realization of a complex $(S,\mathcal{K})$ is the set of all function $\phi\colon S\longrightarrow [0,1]$ such that:
+\begin{itemize}
+\item $supp(\phi)\in\mathcal{K}$
+\item $\sum_{s\in S}\phi(s)=1$
+\end{itemize}
+We denote this set by $\vert (S,\mathcal{K})\vert$. We can give $\vert (S,\mathcal{K})\vert$ a metric topology given by:
+\[
+d(\phi,\psi)=\sqrt{\sum_{s\in S}(\phi(s)-\psi(s))^{2}}
+\]
+for $\phi,\psi\in \vert (S,\mathcal{K})\vert$. When we endowed $\vert (S,\mathcal{K})\vert$ with the metric topology we denote it by $\vert (S,\mathcal{K})\vert_d$. There is a second topology for $\vert (S,\mathcal{K})\vert$ called the coherent topology. Foer each simplex $\sigma\in\mathcal{K}$, we define its geometric realization $\vert\sigma\vert$ as the set of functions $\phi\in \vert (S,\mathcal{K})\vert$ with $supp(\phi)\subseteq \sigma$. We give to $\vert \sigma\vert$ the subspace topology inherited as subset of $\vert (S,\mathcal{K})\vert$. If we consider the inclusion $i_\sigma\colon\vert\sigma\vert\longrightarrow \vert (S,\mathcal{K})\vert$, then coherent topology on $\vert (S,\mathcal{K})\vert$ is the largest topology which makes all the inclusions continuous. Usually, $\vert (S,\mathcal{K})\vert$ is considered with the coherent topology. We may characterize $\vert (S,\mathcal{K})\vert$ as the colimit  in $\mathcal{T}$ of the geometric realization of its simplices. So a function $f\colon\vert (S,\mathcal{K})\vert\longrightarrow X$ is continuous if and only its restrictions to $\vert\sigma\vert$ is continuous for all $\sigma\in\mathcal{K}$. Especially, the identity $\vert (S,\mathcal{K})\vert\longrightarrow \vert (S,\mathcal{K})\vert_d$ is continuous, so the coherent topology contains the metric topology. In particular, if $(S,\mathcal{K})$ is a finite complex, then both topologies coincide.
+\end{definition}
+
 
 \begin{definition}
-Let $X$ be a simplicial set. A simplicial covering on $X$ is a pair $(Y,p)$ where $Y$ is a simplicial set and $p\colon Y\longrightarrow X$ is a simplicial map such that 
+Let $X$ be a simplicial set. A simplicial covering on $X$ is a pair $(Y,p)$ where $Y$ is a simplicial set and $p\colon Y\longrightarrow X$ is a simplicial map such that
+\end{definition}
+
+\begin{definition}
+If $f\colon (S,\mathcal{K})\longrightarrow (T,\mathcal{L})$ is a simplicial map, then it induces a continuous function $\vert f\vert\colon \vert(S,\mathcal{K})\vert\longrightarrow \vert(T,\mathcal{L})\vert$. If $\phi\in \vert(S,\mathcal{K})\vert$ with $\sigma=supp(\phi)$ then $\phi=\sum_{s\in\sigma}\phi(s)\phi_s$. So  we define $\vert f\vert (\phi):=\sum_{s\in \sigma}\phi(s)\phi_{f(s)}$. In this way, the geometric realization is a functor from $\mathcal{C}$ to $\mathcal{T}$.
 \end{definition}
 
 \begin{proposition}
-Let $X$ be a simplicial set and $(Y,p)$ a simplicial covering of $X$. Then $(\vert Y\vert,\vert p\vert)$ is covering of $\vert X\vert$.
+Let $(S,\mathcal{K})$ be a complex and $((T,\mathcal{L}),p)$ a finite geometric covering of $(S,\mathcal{K})$. Then $\vert (T,\mathcal{L}), p)\vert $ is covering of $\vert (S,\mathcal{K})\vert$.
+\end{proposition}
+
+\begin{proof}
+Let $\phi\in \vert (S,\mathcal{K})\vert$ with $supp(\phi)=\sigma\in\mathcal{K}$. Then $p^{-1}(\sigma)=\bigcup_{i\in I}\sigma_i$ where the family $\{\sigma_i\}_{i\in I}$ is a pairwise disjoint family of simplices of $\mathcal{L}$ such that $p|_{\sigma_i}\colon \sigma_i\longrightarrow \sigma$ is bijective.  We define $R=\min\{\frac{d(\phi,\phi_s}{2}\mid s\in\sigma\}$. So $\mathbb{B}_R(\phi)$ is an open neighborhood of $\phi$. We affirm that $\vert p\vert^{-1}(\mathbb{B}_R(\phi))=\bigcup_{i\in I}\mathbb{B}_R(\phi_i)$
+\end{proof}
+
+\begin{proposition}
+Let $(S,\mathcal{K})$ be a complex and $((T,\mathcal{L}),p)$ a finite dimensional geometric covering of $(S,\mathcal{K})$. Then $\vert (T,\mathcal{L}), p)\vert $ is covering of $\vert (S,\mathcal{K})\vert$.
 \end{proposition}
 
 \begin{proof}
 
 \end{proof}
+
+\begin{proposition}
+Let $(S,\mathcal{K})$ be a complex and $((T,\mathcal{L}),p)$ a geometric covering of $(S,\mathcal{K})$. Then $\vert (T,\mathcal{L}), p)\vert $ is covering of $\vert (S,\mathcal{K})\vert$.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Geometric Realization of the Universal Covering Complex}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
