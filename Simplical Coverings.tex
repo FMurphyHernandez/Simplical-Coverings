@@ -77,13 +77,13 @@ A morphism between complex $(S_1,\mathcal{K}^1)$ and $(S_2,\mathcal{K}^2)$ is a 
 If $X$ is a non empty set, we denote by $D(X)$ the complex given $(X,\mathcal{D}_X)$ where $\mathcal{D}_X$ is the set of all non empty finite subsets of $X$. .As reference of complexes, we recommend \cite{singer2015lecture}  and \cite{spanier1989algebraic}.
 
 
-We denote by $\mathbb{P}(X)$ the power set of a set of $X$. If $f\colon X\longrightarrow Y$ is a function, then $f$ induces a map $f_\circ \mathbb{P}(X)\longrightarrow \mathbb{P}(Y)$ where $f_\circ(A)$ is the direct image of $A$ under $f$ for $A\in\mathbb{P}(X)$. 
+We denote by $\mathbb{P}(X)$ the power set of a set of $X$. If $f\colon X\longrightarrow Y$ is a function, then $f$ induces a map $f_\circ \colon\mathbb{P}(X)\longrightarrow \mathbb{P}(Y)$ where $f_\circ(A)$ is the direct image of $A$ under $f$ for $A\in\mathbb{P}(X)$. 
 
 We  denote by $\mathcal{T}$ to the category of topological spaces and continuous maps.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Geometric Covering Complexes}
+\section{Covering Complexes}
 
 
 \begin{definition}
@@ -132,7 +132,7 @@ Let $(S,\mathcal{K})$ be a finite dimensional complex, and $((T,\mathcal{L}),p)$
 Conjetura
 \end{proof}
 
-Let $(S,\mathcal{K})$ and $(T,\mathcal{L})$ be complexes and $f\colon S\longrightarrow T$ be a function. We notice that $f$ is a simplicial map....
+Let $(S,\mathcal{K})$ and $(T,\mathcal{L})$ be complexes and $f\colon S\longrightarrow T$ be a function. We notice that $f$ is a simplicial map if $f_\circ(\mathcal{K})\subseteq\mathcal{L}$. So we denote the induced map by $f_*\colon \mathcal{K}\longrightarrow\mathcal{L}$.
 
 \begin{definition}
 Let $(S,\mathcal{K})$ be a complex. A combinatoric covering of $(S,\mathcal{K})$ is a covering $((T,\mathcal{L}),p)$ such that $p_*^{-1}(\sigma)$ is a family of pairwise disjoint simplices.
@@ -142,14 +142,52 @@ Let $(S,\mathcal{K})$ be a complex. A combinatoric covering of $(S,\mathcal{K})$
 Let $(S,\mathcal{K})$ be the complex $D(\mathbb{Z}_2)$, and $(T,\mathcal{L})$ be the complex  $sk_1(D(\mathbb{Z}_4))$. We consider the canonical projection $p\colon \mathbb{Z}_4\longrightarrow \mathbb{Z}_2$ which is a simplicial map.  This map is a  geometric covering complex, but is not a combinatoric complex as $p_*^{-1}(\{[0]\})=\{\{[0]\},\{[2]\},\{[0],[2]\}\}$ is not pairwise disjoint.
 \end{example}
 
+\begin{example}
+Let $(S,\mathcal{K})$ be the complex $sk_1(D(\mathbb{Z}_3))$, and $(T,\mathcal{L})$ be the complex given by $T=\mathbb{Z}$ and $\mathcal{L}=\{\{n,n+1\}\mid n\in\mathbb{Z}\}\cup\{\{m\}\mid m\in\mathbb{Z}\}$. We consider the canonical projection $p\colon \mathbb{Z}\longrightarrow \mathbb{Z}_3$ which is a simplicial map. Moreover,  $((T,\mathcal{L}),p)$ is a combinatoric covering complex.
+\end{example}
+
 \begin{proposition}
 Let $(S,\mathcal{K})$ be a complex, and $((T,\mathcal{L}),p)$ a combinatoric covering complex of $(S,\mathcal{K})$. Then $((T,\mathcal{L}),p)$ is a geometric covering complex.
+\end{proposition}
+
+\begin{proof}
+Let $\sigma\in\mathcal{L}_n$.  As $p$ is a covering there is a family $\{\sigma_i\}_{i\in I}$ of pairwise disjoint simplices such that $p^{-1}(p(\sigma))=\bigcup_{i\in I}\sigma_i$ and $\vert \sigma_i\vert=\vert p(\sigma)\vert$ for all $i\in I$.  We observe that $ \{\sigma_i\}_{i\in I}$ and $p^{-1}_*(\sigma)$ are partitions of $p^{-1}(p(\sigma))$. As we have that $\{\sigma_i\}_{i\in I}\subseteq p^{-1}_*(\sigma)$, then $\{\sigma_i\}_{i\in I}= p^{-1}_*(\sigma)$. So $\sigma=\sigma_j$ for some $j\in I$, and $\vert\sigma\vert=\vert p(\sigma)\vert$. Therefore $((T,\mathcal{L}),p)$ a geometric covering complex.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{$G$-Covering Complexes}
+
+\begin{definition}
+Let $G$ be a group and $(S,\mathcal{K})$ be a complex. We say that $(S,\mathcal{K})$ is a $G$-complex, if $S$ is a $G$-set and $g\sigma\in  \mathcal{K}$ for all $\sigma\in\mathcal{K}$. We notice that in particular $\mathcal{K}$ is a $G$-set.
+\end{definition}
+
+\begin{definition}
+Let $G$ be a group and $(S,\mathcal{K})$ be a $G$-complex. We define $\mathcal{K}^G:=\{\pi(\sigma)\subseteq S/G\mid \sigma\in\mathcal{K}\}$ where $\pi\colon S\longrightarrow S/G$ is the canonical projection.
+\end{definition}
+
+\begin{proposition}
+Let $G$ be a group and $(S,\mathcal{K})$ be a $G$-complex. Then $(S/G,\mathcal{K}^G)$ is a complex. Moreover, $\pi$ is a simplicial map.
 \end{proposition}
 
 \begin{proof}
 
 \end{proof}
 
+\begin{definition}
+Let $G$ be a group and $(S,\mathcal{K})$ be a $G$-complex. We say that the action is discontinuous, if $g\sigma\cap\sigma=\emptyset$ for any $\sigma\in\mathcal{K}$.
+\end{definition}
+
+\begin{proposition}
+Let $G$ be a group and $(S,\mathcal{K})$ be a $G$-complex with discontinuous action. Then $((S/G,\mathcal{K}^G),\pi)$ is covering complex.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{example}
+
+\end{example}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Geometric Realization of Covering Complexes}
