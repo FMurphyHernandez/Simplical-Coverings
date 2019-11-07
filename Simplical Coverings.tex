@@ -81,6 +81,7 @@ We denote by $\mathbb{P}(X)$ the power set of a set of $X$. If $f\colon X\longri
 
 We  denote by $\mathcal{T}$ to the category of topological spaces and continuous maps.
 
+For $S$ a $G$-set and $s\in S$, we denote by $G_s$ the stabilizer of $s$ and  by $o(s)$ the orbit of $s$. The set of orbits of $S$ is a partition of $S$, so the quotient set is denoted by $S/G$. We say that the action is free, for any $g\in G$ and $s\in S$ $gs=s$ implies $g=e$. Any $G$-set can be descomposed as the disjoint union of its orbits, so $S=\coprod_{o(s)\in S/G}o(s)$. As reference for $G$-sets, we have the books of M. Aschbacher \cite{aschbacher2000finite}, and of J. Rotman \cite{rotman2012introduction}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Covering Complexes}
@@ -170,12 +171,16 @@ Let $G$ be a group and $(S,\mathcal{K})$ be a $G$-complex. Then $(S/G,\mathcal{K
 \end{proposition}
 
 \begin{proof}
-
+Let $o(x)\in S/G$. Then $\pi(\{x\})=\{xG\}$. As $\{x\}\in\mathcal{K}$, we have that $\{xG\}\in\mathcal{K}^G$.
 \end{proof}
 
 \begin{definition}
-Let $G$ be a group and $(S,\mathcal{K})$ be a $G$-complex. We say that the action is discontinuous, if $g\sigma\cap\sigma=\emptyset$ for any $\sigma\in\mathcal{K}$.
+Let $G$ be a group and $(S,\mathcal{K})$ be a $G$-complex. We say that the action is wandering, if for any $g\in G$ $g\sigma\cap\sigma\neq\emptyset$ implies that $g=e$. % analizar esto a nivel de dimensiones de los simplejos
 \end{definition}
+
+\begin{example}
+Let $G$ be a group and $S$ be a $G$-set. If the action over $S$ is free, then the indiscrete complex over $S$ is $G$ complex with wandering action.
+\end{example}
 
 \begin{proposition}
 Let $G$ be a group and $(S,\mathcal{K})$ be a $G$-complex with discontinuous action. Then $((S/G,\mathcal{K}^G),\pi)$ is covering complex.
@@ -185,9 +190,60 @@ Let $G$ be a group and $(S,\mathcal{K})$ be a $G$-complex with discontinuous act
 
 \end{proof}
 
+\begin{definition}
+Let $G$ be a group, $(S,\mathcal{K})$ be a $G$-complex, and $\sigma\in\mathcal{K}$. We say that $\sigma$ is wandering, if for any $x,y\in\sigma$ $o(x)=o(y)$ implies that $x=y$.
+\end{definition}
+
+\begin{proposition}
+Let $G$ be a group, $(S,\mathcal{K})$ be a $G$-complex, and $\sigma\in\mathcal{K}$. Then $\sigma$ is wandering if and only if $\vert \sigma\cap o(x)\vert=1$ for any $x\in \sigma$.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{definition}
+Let $G$ be a group and $S$ be a $G$-set. We define $\mathcal{K}[G]$ as the set of all elements of $\mathcal{D}_S$ which are wandering.
+\end{definition}
+
+
+\begin{proposition}
+Let $G$ be a group and $S$ be a $G$-set. Then $(S,\mathcal{K}[G])$ is a complex  with discontinuous action.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{proposition}
+Let $G$ be a group and $(S,\mathcal{K})$ be a $G$-complex with discontinuous action. Then $\mathcal{K}\subseteq \mathcal{K}[G]$.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+% toda cubriente es de esta forma
+% las estructuras de complejos forman un algebra de boole, se puede usar?
+
+
 \begin{example}
 
 \end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Geometric Realization of Covering Complexes}
