@@ -77,11 +77,13 @@ A morphism between complex $(S_1,\mathcal{K}^1)$ and $(S_2,\mathcal{K}^2)$ is a 
 If $X$ is a non empty set, we denote by $D(X)$ the complex given $(X,\mathcal{D}_X)$ where $\mathcal{D}_X$ is the set of all non empty finite subsets of $X$. .As reference of complexes, we recommend \cite{singer2015lecture}  and \cite{spanier1989algebraic}.
 
 
-We denote by $\mathbb{P}(X)$ the power set of a set of $X$. If $f\colon X\longrightarrow Y$ is a function, then $f$ induces a map $f_\circ \colon\mathbb{P}(X)\longrightarrow \mathbb{P}(Y)$ where $f_\circ(A)$ is the direct image of $A$ under $f$ for $A\in\mathbb{P}(X)$. 
+We denote by $\mathbb{P}(X)$ the power set of a set of $X$. If $f\colon X\longrightarrow Y$ is a function, then $f$ induces a map $f_\circ \colon\mathbb{P}(X)\longrightarrow \mathbb{P}(Y)$ where $f_\circ(A)$ is the direct image of $A$ under $f$ for $A\in\mathbb{P}(X)$. We denote by $\mathcal{S}_X$ the group of permutation in $X$.
 
 We  denote by $\mathcal{T}$ to the category of topological spaces and continuous maps.
 
 For $S$ a $G$-set and $s\in S$, we denote by $G_s$ the stabilizer of $s$ and  by $o(s)$ the orbit of $s$. The set of orbits of $S$ is a partition of $S$, so the quotient set is denoted by $S/G$. We say that the action is free, for any $g\in G$ and $s\in S$ $gs=s$ implies $g=e$. Any $G$-set can be descomposed as the disjoint union of its orbits, so $S=\coprod_{o(s)\in S/G}o(s)$. As reference for $G$-sets, we have the books of M. Aschbacher \cite{aschbacher2000finite}, and of J. Rotman \cite{rotman2012introduction}.
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Covering Complexes}
@@ -222,6 +224,28 @@ Let $G$ be a group and $(S,\mathcal{K})$ be a $G$-complex with discontinuous act
 \begin{proof}
 
 \end{proof}
+
+
+\begin{definition}
+Let $G$ be a group, let $H$ be a subgroup of $G$, $(S,\mathcal{K})$ be a $G$-complex, and $\sigma\in\mathcal{K}$.We say that $\sigma$ is $H$-wandering, if for any $x,y\in\sigma$ $o_H(x)=o_H(y)$ implies that $x=y$. In particular, to say that $\sigma$ is wandering means that $G$-wandering.
+\end{definition}
+
+\begin{proposition}
+Let $(S,\mathcal{K})$ be a complex and $\sigma\in\mathcal{K}$. Then there is a group $W_\sigma$ such that  $(S,\mathcal{K})$ be is a $W_\sigma$-complex with $\sigma$ wandering and if there is other group $G$ with these properties there is a unique monorphism.....
+\end{proposition}
+
+
+\begin{proof}
+Let $G$ be group of automorphisms of $(S,\mathcal{K})$. Then $(S,\mathcal{K})$ is a $G$-complex.  We put $\mathfrak{S}$ as the family of all subgroups $H$ of $G$ such that $\sigma$ is $H$-wandering. We notice that $\mathfrak{S}$ is no empty as $\{e\}$ is in $\mathfrak{S}$. So we consider an ascending chain $\{H_i\}_{i=0}^\infty$ in $\mathfrak{S}$....
+\end{proof}
+
+
+
+
+
+
+
+
 
 % toda cubriente es de esta forma
 % las estructuras de complejos forman un algebra de boole, se puede usar?
